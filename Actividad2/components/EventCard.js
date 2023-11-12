@@ -15,13 +15,13 @@ export default function EventCard({event, onPress}) {
   };
 
   return (
-  <TouchableOpacity onPress={onPress} style={[styles.container]}>
-    <Text >Nombre: {event.nombre}</Text>
-    <Text >Precio: {event.precio}</Text>
-    <Text >Ubicación: {event.ubicacion}</Text>
-    <Text >Descripción: {event.descripcion}</Text>
-    <Text >Fecha inicio: {formatDate(event.fecha_inicio)}</Text>
-    <Text >Fecha fin: {formatDate(event.fecha_fin)}</Text>
+  <TouchableOpacity onPress={onPress} style={styles.container}>
+    <Text><Text style={styles.title}>Nombre: </Text>{event.nombre}</Text>
+    <Text ><Text style={styles.title}>Precio: </Text>{event.precio}</Text>
+    <Text ><Text style={styles.title}>Ubicación: </Text>{event.ubicacion}</Text>
+    <Text ><Text style={styles.title}>Descripción: </Text>{event.descripcion}</Text>
+    <Text ><Text style={styles.title}>Fecha inicio: </Text>{formatDate(event.fecha_inicio)}</Text>
+    <Text ><Text style={styles.title}>Fecha fin: </Text>{formatDate(event.fecha_fin)}</Text>
   </TouchableOpacity>
   );
 }
@@ -30,13 +30,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
     borderWidth: 1,
     borderRadius: 3,
     borderColor: '#49494a',
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginVertical: 7
+  },
+  title: {
+    fontWeight: 600
   }
 });
