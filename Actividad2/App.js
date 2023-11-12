@@ -5,7 +5,7 @@ import Eventos from './screens/Eventos';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>HOLA MUNDO! </Text>
+      <Text>EVENTOS</Text>
       <Eventos></Eventos>
       <StatusBar style="auto" />
     </View>
