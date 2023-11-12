@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function CrearEvento() {
+export default function CrearEvento({navigation}) {
   return (
     <View style={styles.container}>
       <Text>Pantalla para crear evento</Text>

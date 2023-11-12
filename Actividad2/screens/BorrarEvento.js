@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function BorrarEvento() {
+export default function BorrarEvento({navigation}) {
   return (
     <View style={styles.container}>
       <Text>Pantalla para confirmar borrar un evento</Text>

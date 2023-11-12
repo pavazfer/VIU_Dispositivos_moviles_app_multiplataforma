@@ -4,7 +4,7 @@ import {getAllEvents} from '../service/eventService';
 import EventCard from '../components/EventCard';
 
 
-export default function Eventos() {
+export default function Eventos({navigation}) {
   const [eventList, setEventList] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function Eventos() {
     return (
       <EventCard
         event={event}
-        onPress={() => console.log("Seleccionado evento", event.id)}
+        onPress={() => navigation.navigate({name: 'MostrarEvento', params: {id: event.id, nombre: event.nombre}})}
       />
     );
   }
