@@ -18,8 +18,8 @@ export default function MostrarEvento({navigation, route}) {
     <View style={styles.container}>
       <Text>Pantalla con evento con id: {id}</Text>
       <Text>Evento: {evento.nombre}</Text>
-      <Pressable onPress={redirectToDelete}>
-        <Text>Borrar</Text>
+      <Pressable style={[styles.borrarBtn, styles.btn]} onPress={redirectToDelete}>
+        <Text style={styles.borrarBtn}>Borrar</Text>
       </Pressable>
     </View>
   );
@@ -32,4 +32,15 @@ export default function MostrarEvento({navigation, route}) {
       alignItems: 'center',
       justifyContent: 'center',
     },
+    btn: {
+      borderRadius: 3,
+      paddingHorizontal: 10,
+      paddingVertical: 5,
+      alignItems: 'center',
+      marginHorizontal: 5
+    },
+    borrarBtn: {
+      backgroundColor: 'darkred',
+      color: 'white',
+    }
   });
