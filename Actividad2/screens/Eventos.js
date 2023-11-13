@@ -1,15 +1,15 @@
-import { StyleSheet, SafeAreaView, FlatList, Text} from 'react-native';
+import { StyleSheet, SafeAreaView, FlatList} from 'react-native';
 import { useEffect, useState } from 'react';
 import {getAllEvents} from '../service/eventService';
-import EventCard from '../components/EventCard';
+import EventCard from '../components/eventCard';
 
 
-export default function Eventos({navigation}) {
+export default function Eventos({navigation, route}) {
   const [eventList, setEventList] = useState([]);
 
   useEffect(() => {
     getAllEvents().then(events => setEventList(events));
-  }, []);
+  }, [route]);
 
   // Destructuración de objeto para obtener el item con nombre de variable event
   const renderEvent = ({item: event}) => {

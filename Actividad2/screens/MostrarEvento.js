@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { getEventById } from '../service/eventService';
 
 export default function MostrarEvento({navigation, route}) {
@@ -10,10 +10,17 @@ export default function MostrarEvento({navigation, route}) {
     getEventById(id).then(event => setEvento(event));
   }, []);
 
+  const redirectToDelete = () => {
+    navigation.navigate({name: 'BorrarEvento', params: {id}})
+  }
+
   return (
     <View style={styles.container}>
       <Text>Pantalla con evento con id: {id}</Text>
       <Text>Evento: {evento.nombre}</Text>
+      <Pressable onPress={redirectToDelete}>
+        <Text>Borrar</Text>
+      </Pressable>
     </View>
   );
 }
