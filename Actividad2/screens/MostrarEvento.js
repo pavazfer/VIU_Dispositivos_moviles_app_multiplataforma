@@ -14,10 +14,25 @@ export default function MostrarEvento({navigation, route}) {
     navigation.navigate({name: 'BorrarEvento', params: {id}})
   }
 
+  const formatDate = (date) => {
+    const newDate = new Date(date);
+    return newDate.toLocaleDateString('es-ES', {
+      minute: 'numeric',
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: 'numeric'
+    });
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Pantalla con evento con id: {id}</Text>
-      <Text>Evento: {evento.nombre}</Text>
+    <Text><Text style={styles.title}>Nombre: </Text>{evento.nombre}</Text>
+    <Text ><Text style={styles.title}>Precio: </Text>{evento.precio}</Text>
+    <Text ><Text style={styles.title}>Ubicación: </Text>{evento.ubicacion}</Text>
+    <Text ><Text style={styles.title}>Descripción: </Text>{evento.descripcion}</Text>
+    <Text ><Text style={styles.title}>Fecha inicio: </Text>{formatDate(evento.fecha_inicio)}</Text>
+    <Text ><Text style={styles.title}>Fecha fin: </Text>{formatDate(evento.fecha_fin)}</Text>
       <Pressable style={[styles.borrarBtn, styles.btn]} onPress={redirectToDelete}>
         <Text style={styles.borrarBtn}>Borrar</Text>
       </Pressable>
@@ -29,18 +44,22 @@ export default function MostrarEvento({navigation, route}) {
     container: {
       flex: 1,
       backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
+      paddingTop: 15
     },
     btn: {
+      marginTop: 15,
       borderRadius: 3,
       paddingHorizontal: 10,
       paddingVertical: 5,
       alignItems: 'center',
-      marginHorizontal: 5
+      marginHorizontal: 5,
+      alignSelf: 'flex-end'
     },
     borrarBtn: {
       backgroundColor: 'darkred',
       color: 'white',
+    },
+    title: {
+      fontWeight: 600
     }
   });

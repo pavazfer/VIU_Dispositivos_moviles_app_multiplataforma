@@ -11,7 +11,6 @@ export default function EventCard({event, onPress}) {
       day: 'numeric',
       hour: 'numeric'
     });
-
   };
 
   return (
