@@ -1,7 +1,7 @@
 import { StyleSheet, SafeAreaView, FlatList, Pressable, Text } from 'react-native';
 import { useEffect, useState } from 'react';
 import { getAllEvents } from '../service/eventService';
-import EventCard from '../components/eventCard';
+import EventCard from '../components/EventCard';
 
 
 export default function Eventos({ navigation, route }) {
@@ -27,9 +27,6 @@ export default function Eventos({ navigation, route }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Pressable style={[styles.btn, styles.createBtn]} onPress={redirectToCreate}>
-        <Text style={styles.createBtnText}>Añadir evento</Text>
-      </Pressable>
       <FlatList
         data={eventList}
         renderItem={renderEvent}
@@ -62,5 +59,5 @@ const styles = StyleSheet.create({
   createBtnText: {
     color: 'white',
     fontSize: 16
-  }
+  },
 });
