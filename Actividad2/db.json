@@ -1,15 +1,6 @@
 {
   "events": [
     {
-      "id": 1,
-      "nombre": "Seminario React Native",
-      "fecha_inicio": "2023-11-21T18:30:00",
-      "fecha_fin": "2023-11-21T20:00:00",
-      "precio": "Gratis",
-      "ubicacion": "Campus virtual",
-      "descripcion": "Seminario en el que se explicará en profundidad el funcionamiento de React Native"
-    },
-    {
       "id": 2,
       "nombre": "Ruta de tapas",
       "fecha_inicio": "2023-11-24T11:00:00",
@@ -27,5 +18,6 @@
       "ubicacion": "Cines Cinesa",
       "descripcion": "El miercoles 22 de Noviembre, todas las entradas de cines en cinesa por 3€"
     }
+  
   ]
 }
