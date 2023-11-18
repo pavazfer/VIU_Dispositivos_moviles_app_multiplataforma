@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+import Splash from './screens/Splash';
 import Eventos from './screens/Eventos';
 import MostrarEvento from './screens/MostrarEvento';
 import BorrarEvento from './screens/BorrarEvento';
