@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, Image } from 'react-native';
 
 export default function Splash({ navigation }) {
-  useEffect(() => {
+ /* useEffect(() => {
     setTimeout(() => {
       // Navigate and then launch the question
       navigation.replace('Eventos');
     }, 2000);
-  }, []);
+  }, []);*/
 
   return (
     <View style={styles.container}>
@@ -34,34 +34,34 @@ export default function Splash({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'black',
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  imageContainer: {
-    flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  logo: {
-    width: 200,
-    height: 200, 
-  },
-  textContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    color: 'white',
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+    container: {
+      backgroundColor: '#EDEDED', 
+      flex:1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    imageContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: 10,
+    },
+    logo: {
+      width: 200,
+      height: 200, 
+    },
+    textContainer: {      
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginVertical: 10,
+    },
+    text: {
+      color: 'black',
+      fontSize: 24,
+      fontWeight: 'bold',
+    },
+    loadingContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 10,
+    },
+  });

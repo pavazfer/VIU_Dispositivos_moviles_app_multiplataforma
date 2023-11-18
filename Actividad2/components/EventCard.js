@@ -1,8 +1,6 @@
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function EventCard({event, onPress}) {
-
-  
+export default function EventCard({ event, onPress }) {
   const formatDate = (date) => {
     const newDate = new Date(date);
     return newDate.toLocaleDateString('es-ES', {
@@ -15,34 +13,48 @@ export default function EventCard({event, onPress}) {
   };
 
   return (
-  <TouchableOpacity onPress={onPress} style={styles.container}>
-    <Text style={{ color: 'white', fontWeight: 600 }}>Nombre: {event.nombre}</Text>
-    <Text style={{ color: 'white', fontWeight: 600 }}>Precio: {event.precio}</Text>
-    <Text style={{ color: 'white', fontWeight: 600 }}>Ubicación: {event.ubicacion}</Text>
-    <Text style={{ color: 'white', fontWeight: 600 }}>Descripción: {event.descripcion}</Text>
-    <Text style={{ color: 'white', fontWeight: 600 }}>Fecha inicio: {formatDate(event.fecha_inicio)}</Text>
-    <Text style={{ color: 'white', fontWeight: 600 }}>Fecha fin: {formatDate(event.fecha_fin)}</Text>
-
-  </TouchableOpacity>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
+      <View style={styles.content}>
+        <Image
+          source={event.imagen ? require(`../assets/${event.imagen}`) : null}
+          style={styles.image}
+          resizeMode="cover"
+        />
+        <Text style={styles.title}>{event.nombre}</Text>
+      </View>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#00569d',
-    borderWidth: 1,
-    borderRadius: 40,
-    borderColor: '#49494a',
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    marginVertical: 20
+    borderRadius: 8,
+    backgroundColor: '#fff',
+    margin: 10,
+    padding: 10,
+    elevation: 2, // Sombra en Android
+    shadowColor: '#000', // Sombra en iOS
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+  content: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   title: {
-    fontWeight: 600,
-    color: 'white'
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 10,
+    textAlign: 'center',
   },
-  text: {
-    color: 'white', // Puedes cambiar el color aquí
-  }
+  image: {
+    width: 200,
+    height: 200,
+    borderRadius: 8,
+    marginBottom: 10,
+  },
 });

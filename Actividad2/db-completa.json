@@ -7,7 +7,8 @@
       "fecha_fin": "2023-11-21T20:00:00",
       "precio": "Gratis",
       "ubicacion": "Campus virtual",
-      "descripcion": "Seminario en el que se explicará en profundidad el funcionamiento de React Native"
+      "descripcion": "Seminario en el que se explicará en profundidad el funcionamiento de React Native",
+      "imagen": "react.png"
     },
     {
       "id": 2,
@@ -16,7 +17,8 @@
       "fecha_fin": "2023-11-26T23:59:59",
       "precio": "3€",
       "ubicacion": "Plaza mayor",
-      "descripcion": "Durante estos días, todos los bares y restaurantes de la Plaza mayor, darán una tapa y cerveza por 3€"
+      "descripcion": "Durante estos días, todos los bares y restaurantes de la Plaza mayor, darán una tapa y cerveza por 3€",
+      "imagen": "tapas.png"
     },
     {
       "id": 3,
@@ -25,7 +27,18 @@
       "fecha_fin": "2023-11-22T23:59:59",
       "precio": "3€",
       "ubicacion": "Cines Cinesa",
-      "descripcion": "El miercoles 22 de Noviembre, todas las entradas de cines en cinesa por 3€"
+      "descripcion": "El miercoles 22 de Noviembre, todas las entradas de cines en cinesa por 3€",
+      "imagen": "cine.png"
+    },
+    {
+      "nombre": "Prueba 2",
+      "ubicacion": "",
+      "precio": "",
+      "fechaInicio": "",
+      "fechaFin": "",
+      "descripcion": "",
+      "imagen": "evento.png",
+      "id": 5
     }
   ]
 }

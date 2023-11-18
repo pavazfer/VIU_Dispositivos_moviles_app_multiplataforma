@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -13,10 +13,23 @@ import CrearEvento from './screens/CrearEvento';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+
+  const [isSplashVisible, setSplashVisible] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSplashVisible(false);
+    }, 5000); // Tiempo de espera simulado de 5s
+  }, []);
+
+  if (isSplashVisible) {
+    return <Splash navigation={null} />; // No es necesario pasar navigation aquí
+  }
+
   return (
     <NavigationContainer>
       <View style={styles.container}>
-        <StatusBar style="light" translucent={true} backgroundColor="#3498db" />
+        <StatusBar style={styles.statusBar} />
         <Stack.Navigator
           initialRouteName="Eventos"
           screenOptions={{
@@ -74,6 +87,11 @@ const styles = StyleSheet.create({
   },
   addButton: {
     marginRight: 15,
+  },
+  statusBar: {
+    backgroundColor: '#3498db',
+    translucent: true,
+    barStyle: 'light-content',
   },
 });
 

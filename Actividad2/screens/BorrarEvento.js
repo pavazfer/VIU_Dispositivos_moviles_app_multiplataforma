@@ -7,6 +7,8 @@ export default function BorrarEvento({ navigation, route }) {
   const { id } = route.params;
   const [evento, setEvento] = useState({});
 
+  console.log(evento)
+
   useEffect(() => {
     getEventById(id).then(event => setEvento(event));
   }, []);
@@ -48,6 +50,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 16,
+    textAlign: 'center'
   },
   eventContainer: {
     width: '100%',
@@ -73,9 +76,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightgray',
   },
   borrarBtn: {
-    backgroundColor: 'darkred',
+    backgroundColor: 'red',
     color: 'white',
   },
+  
   // Estilo adicional para redondear la tarjeta del evento
   eventCard: {
     borderRadius: 20,

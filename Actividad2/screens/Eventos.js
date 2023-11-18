@@ -17,6 +17,7 @@ export default function Eventos({ navigation, route }) {
       <EventCard
         event={event}
         onPress={() => navigation.navigate({ name: 'MostrarEvento', params: { id: event.id, nombre: event.nombre } })}
+        containerStyle={styles.eventCard} 
       />
     );
   }
@@ -42,6 +43,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  eventCard: {
+    borderRadius: 20,
+    overflow: 'hidden',
+    elevation: 2, // Sombra en Android
+    shadowColor: '#000', // Sombra en iOS
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
   },
   btn: {
     borderRadius: 3,
