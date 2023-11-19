@@ -32,7 +32,7 @@ export default function BorrarEvento({ navigation, route }) {
           <Text style={styles.btnText}>Cancelar</Text>
         </Pressable>
         <Pressable style={[styles.btn, styles.borrarBtn]} onPress={deleteEvento}>
-          <Text style={styles.btnText}>Borrar</Text>
+          <Text style={[styles.btnText, styles.borrarBtn]}>Borrar</Text>
         </Pressable>
       </View>
     </View>
