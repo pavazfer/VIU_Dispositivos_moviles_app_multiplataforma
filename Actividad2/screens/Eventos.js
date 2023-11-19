@@ -5,7 +5,6 @@ import EventCard from '../components/EventCard';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CrearEvento from './CrearEvento';
 
-const Tab = createBottomTabNavigator();
 
 export default function Eventos({ navigation, route }) {
   const [eventList, setEventList] = useState([]);
@@ -32,13 +31,6 @@ export default function Eventos({ navigation, route }) {
         renderItem={renderEvent}
         keyExtractor={event => event.id}
       />
-        <Tab.Navigator >
-          <Tab.Screen 
-          name="CrearEvento" 
-          component={CrearEvento} 
-          options={{ title: 'Nuevo Evento' }}
-          />
-        </Tab.Navigator>
     </SafeAreaView>
   );
 }

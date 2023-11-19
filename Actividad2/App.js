@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons';
 import Splash from './screens/Splash';
-import Eventos from './screens/Eventos';
-import MostrarEvento from './screens/MostrarEvento';
-import BorrarEvento from './screens/BorrarEvento';
 import CrearEvento from './screens/CrearEvento';
+import EventsContainer from './screens/EventsContainer';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
 
 export default function App() {
 
@@ -29,52 +27,30 @@ export default function App() {
   return (
     <NavigationContainer>
       <View style={styles.container}>
-        <StatusBar style={styles.statusBar} />
-        <Stack.Navigator
-          initialRouteName="Eventos"
-          screenOptions={{
+      <Tab.Navigator  screenOptions={{
             headerStyle: {
               backgroundColor: '#3498db',
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
               fontWeight: 'bold',
-            },
-          }}
-        >
-          <Stack.Screen
-            name="Eventos"
-            component={Eventos}
-            options={({ navigation }) => ({
-              title: 'Mis Eventos',
-              headerRight: () => (
-                <TouchableOpacity
-                  onPress={() => navigation.navigate('CrearEvento')}
-                  style={styles.addButton}
-                >
-                  <Ionicons name="add-circle" size={30} color="#fff" />
-                </TouchableOpacity>
-              ),
-            })}
+            }
+          }}>
+        <Tab.Screen 
+          name="EventsContainer" 
+          component={EventsContainer} 
+          options={{ title: 'Eventos', headerShown: false, tabBarIcon: ({ color, size }) => (
+            <Ionicons name="calendar" color={color} size={size} />
+          ), }}
           />
-          <Stack.Screen
-            name="BorrarEvento"
-            component={BorrarEvento}
-            options={{ title: 'Borrar Evento' }}
+          <Tab.Screen 
+          name="CrearEvento" 
+          component={CrearEvento} 
+          options={{ title: 'Nuevo Evento', tabBarIcon: ({ color, size }) => (
+            <Ionicons name="add-circle" color={color} size={size} />
+          )}}
           />
-          <Stack.Screen
-            name="MostrarEvento"
-            component={MostrarEvento}
-            options={({ route }) => ({
-              title: `Evento: ${route.params.nombre}`,
-            })}
-          />
-          <Stack.Screen
-            name="CrearEvento"
-            component={CrearEvento}
-            options={{ title: 'Nuevo Evento' }}
-          />
-        </Stack.Navigator>
+        </Tab.Navigator>
       </View>
     </NavigationContainer>
   );
@@ -84,14 +60,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ecf0f1',
-  },
-  addButton: {
-    marginRight: 15,
-  },
-  statusBar: {
-    backgroundColor: '#3498db',
-    translucent: true,
-    barStyle: 'light-content',
-  },
+  }
 });
 
