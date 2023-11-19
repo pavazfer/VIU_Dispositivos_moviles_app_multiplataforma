@@ -29,16 +29,6 @@
       "ubicacion": "Cines Cinesa",
       "descripcion": "El miercoles 22 de Noviembre, todas las entradas de cines en cinesa por 3€",
       "imagen": "cine.png"
-    },
-    {
-      "nombre": "Prueba 2",
-      "ubicacion": "",
-      "precio": "",
-      "fechaInicio": "",
-      "fechaFin": "",
-      "descripcion": "",
-      "imagen": "evento.png",
-      "id": 5
     }
   ]
 }

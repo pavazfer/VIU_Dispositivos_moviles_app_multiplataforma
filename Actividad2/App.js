@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons'; 
+import { Ionicons } from '@expo/vector-icons';
 import Splash from './screens/Splash';
 import Eventos from './screens/Eventos';
 import MostrarEvento from './screens/MostrarEvento';
@@ -19,7 +19,7 @@ export default function App() {
   useEffect(() => {
     setTimeout(() => {
       setSplashVisible(false);
-    }, 5000); // Tiempo de espera simulado de 5s
+    }, 1500); // Tiempo de espera simulado de 1.5s
   }, []);
 
   if (isSplashVisible) {

@@ -2,7 +2,10 @@ import { StyleSheet, SafeAreaView, FlatList, Pressable, Text } from 'react-nativ
 import { useEffect, useState } from 'react';
 import { getAllEvents } from '../service/eventService';
 import EventCard from '../components/EventCard';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import CrearEvento from './CrearEvento';
 
+const Tab = createBottomTabNavigator();
 
 export default function Eventos({ navigation, route }) {
   const [eventList, setEventList] = useState([]);
@@ -17,13 +20,9 @@ export default function Eventos({ navigation, route }) {
       <EventCard
         event={event}
         onPress={() => navigation.navigate({ name: 'MostrarEvento', params: { id: event.id, nombre: event.nombre } })}
-        containerStyle={styles.eventCard} 
+        containerStyle={styles.eventCard}
       />
     );
-  }
-
-  const redirectToCreate = () => {
-    navigation.navigate({name: 'CrearEvento'})
   }
 
   return (
@@ -33,9 +32,17 @@ export default function Eventos({ navigation, route }) {
         renderItem={renderEvent}
         keyExtractor={event => event.id}
       />
+        <Tab.Navigator >
+          <Tab.Screen 
+          name="CrearEvento" 
+          component={CrearEvento} 
+          options={{ title: 'Nuevo Evento' }}
+          />
+        </Tab.Navigator>
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -72,5 +79,5 @@ const styles = StyleSheet.create({
   createBtnText: {
     color: 'white',
     fontSize: 16
-  },
+  }
 });
