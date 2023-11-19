@@ -13,8 +13,6 @@ export default function CrearEvento({ navigation }) {
     descripcion: '',
   };
 
-  const [eventAdded, setEventAdded] = useState(false);
-
   const createNewEvent = (newEvent) => {
     const newEventData = {
       ...newEvent,
@@ -22,14 +20,8 @@ export default function CrearEvento({ navigation }) {
     };
 
     createEvent(newEventData).then(() => {
-      setEventAdded(true);
       navigation.navigate({ name: 'Eventos', params: { title: 'refresh' } });
     });
-  };
-
-  const navigateToCreateEvent = () => {
-    setEventAdded(false);
-    navigation.navigate({ name: 'CrearEvento' });
   };
 
   return (

@@ -16,13 +16,15 @@ export default function MostrarEvento({ navigation, route }) {
 
   const formatDate = (date) => {
     const newDate = new Date(date);
-    return newDate.toLocaleDateString('es-ES', {
+    const isDate = newDate instanceof Date && !isNaN(newDate);
+
+    return isDate ? newDate.toLocaleDateString('es-ES', {
       minute: 'numeric',
       year: 'numeric',
       month: 'numeric',
       day: 'numeric',
       hour: 'numeric'
-    });
+    }): 'Fecha desconocida';
   };
 
   return (
