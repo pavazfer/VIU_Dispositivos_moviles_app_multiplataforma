@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Pressable, StyleSheet, Text, View, Image } from 'react-native';
+import { Pressable, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { getEventById } from '../service/eventService';
 
 export default function MostrarEvento({ navigation, route }) {
@@ -28,7 +28,7 @@ export default function MostrarEvento({ navigation, route }) {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.centeredContent}>
         <Image
           source={evento.imagen ? require(`../assets/${evento.imagen}`) : null}
@@ -48,7 +48,7 @@ export default function MostrarEvento({ navigation, route }) {
       <Pressable style={styles.deleteButton} onPress={redirectToDelete}>
         <Text style={styles.deleteButtonText}>Borrar Evento</Text>
       </Pressable>
-    </View>
+    </ScrollView>
   );
 }
 
